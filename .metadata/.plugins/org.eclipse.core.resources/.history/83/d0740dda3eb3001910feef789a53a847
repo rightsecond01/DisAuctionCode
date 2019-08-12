@@ -1,0 +1,15 @@
+package com.discodeaucion_ver03;
+
+public class UploadImgTransmission extends Thread{
+	
+	int port = 0;
+	public UploadImgTransmission(int port) {
+		this.port = port;
+	}
+	
+	@Override
+	public void run(){
+		
+	}
+	
+}

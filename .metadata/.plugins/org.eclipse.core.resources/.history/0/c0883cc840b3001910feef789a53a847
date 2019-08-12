@@ -1,0 +1,14 @@
+package com.discodeaucion_ver03;
+
+public class UploadImgReceiving extends Thread{
+	String token = null;
+	String imgFileName = null;
+
+	String thisRoomServerFolder = null;
+	
+	public UploadImgReceiving(String token, String imgFileName) {
+		
+	}
+	
+	
+}

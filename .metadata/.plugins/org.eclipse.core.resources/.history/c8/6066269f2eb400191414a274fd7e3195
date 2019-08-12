@@ -1,0 +1,12 @@
+package com.discodeaucion_ver03;
+
+public class PreImageReceiving extends Thread{
+	
+	String token;
+	String user_id;
+	
+	public PreImageReceiving(String token, String user_id) {
+		
+	}
+
+}

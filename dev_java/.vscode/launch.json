@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AddressBook",
+            "request": "launch",
+            "mainClass": "com.address.AddressBook",
+            "projectName": "dev_java"
+        }
+    ]
+}

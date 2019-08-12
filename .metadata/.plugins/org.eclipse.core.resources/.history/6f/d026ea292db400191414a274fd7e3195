@@ -1,0 +1,13 @@
+package com.discodeaucion_ver03;
+
+import java.net.Socket;
+
+public class PreImageTransmission extends Thread {
+	
+	String gamesImageFolder = "C:\\workspace_java\\dev_java\\src\\com\\images\\games";
+	Socket receiver = null;
+	
+	public PreImageTransmission(String room_game) {
+		
+	}
+}

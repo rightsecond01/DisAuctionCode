@@ -1,0 +1,40 @@
+package com.oracle;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.util.Scanner;
+
+import com.util.DBConnectionMgr;
+
+public class EmpJDBC {
+	Connection con;
+	CallableStatement cstmt;
+	
+	public String getPrco_empnoUpdate() {
+		String msg = null;
+		DBConnectionMgr dbMgr = DBConnectionMgr.getInstance();
+		try {
+			con = dbMgr.getConnection();
+			cstmt = con.prepareCall("{call proc_empnoUpdate(?,?)}");
+			System.out.println("사원번호를 입력하세요.");
+			Scanner scan = new Scanner(System.in);
+			int u_empno = scan.nextInt();
+			cstmt.setInt(1, u_empno);
+			cstmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+			int result = cstmt.executeUpdate();
+			msg = cstmt.getString(2);
+			System.out.println(msg);
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return msg;
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

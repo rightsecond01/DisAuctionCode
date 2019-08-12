@@ -1,0 +1,59 @@
+package com.discodeaucion_ver03;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+public class ImgReceiving extends Thread{
+	
+	int memberSize;
+	String token;
+	String user_id;
+	
+	public ImgReceiving(int memberSize,String token, String user_id) {
+		this.memberSize = memberSize;
+		this.token = token;
+		this.user_id = user_id;
+	}
+
+	@Override
+	public void run() {
+		String saveFolderPath = "C:\\chat_temp\\" + user_id + "\\" + token.substring(0,10) + "\\";		
+		Socket socket = null;
+			System.out.println(memberSize);
+			try {
+				///////디렉토리 생성//////////
+				File saveFolder = new File(saveFolderPath);
+				if(!saveFolder.exists()) {	
+					saveFolder.mkdir();
+				}
+				/////////끝///////////////	
+				for(int i=0;i<memberSize;i++) {
+				socket = new Socket("127.0.0.1",60000);
+				System.out.println("접속");
+				BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
+				DataInputStream dis = new DataInputStream(bis);
+				String receiveFileName = dis.readUTF();
+				String mem_id = receiveFileName.substring(0,receiveFileName.indexOf("_"));
+				System.out.println(mem_id);
+
+				File imgfile = new File(saveFolderPath +receiveFileName);
+				FileOutputStream fos = new FileOutputStream(imgfile);
+				BufferedOutputStream bos = new BufferedOutputStream(fos);
+				int len;
+				int r_data = 0;
+				byte[] data = new byte[4096];
+				while((len = dis.read(data)) != -1) {
+					bos.write(data,0,len);
+					bos.flush();				
+				}
+			}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+	}
+}

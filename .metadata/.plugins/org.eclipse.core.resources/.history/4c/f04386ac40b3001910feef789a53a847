@@ -1,0 +1,9 @@
+package com.discodeaucion_ver03;
+
+public class UploadImgReceiving extends Thread{
+
+	public UploadImgReceiving(String imgFileName) {
+	}
+	
+	
+}

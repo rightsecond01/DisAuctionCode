@@ -1,0 +1,16 @@
+1562572865190	Rename type 'RegisterDao'
+1562573403903	Rename type 'ChatDao'
+1562657165092	Rename type 'Protocol2'
+1562659999772	Rename type 'Panel'
+1562660570498	Rename type 'TalkClient2'
+1562660603431	Rename type 'TalkClientTread2'
+1562837169872	Rename package 'blockchain_Step1'
+1562837192446	Rename type 'Block'
+1562837215122	Copy compilation units
+1562837220002	Delete element
+1562837230558	Delete element
+1562918362633	Rename type 'TalkServer'
+1562918378193	Rename type 'TalkServerThread'
+1562918407631	Rename type 'DisAuctionCodeSerVer'
+1562919004356	Rename type 'DisAuctionCodeServer'
+1562919020184	Rename type 'DACodeServer'

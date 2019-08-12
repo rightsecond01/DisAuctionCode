@@ -1,0 +1,17 @@
+package com.discodeaucion_ver03;
+
+import java.util.List;
+import java.util.Map;
+
+public class ImgTransmission extends Thread{
+	List<Map<String, String>> inRoomUserList;
+	String token;
+	
+	public ImgTransmission(List<Map<String, String>> inRoomUserList,String token) {
+		this.inRoomUserList = inRoomUserList;
+		this.token = token
+	}
+	public void run() {
+		
+	}
+}

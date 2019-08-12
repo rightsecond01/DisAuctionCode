@@ -1,0 +1,6 @@
+package com.discodeaucion_ver03;
+
+public class PreImageTransmission extends Thread {
+	
+	String gamesImageFolder = "C:\\workspace_java\\dev_java\\src\\com\\images\\games";
+}

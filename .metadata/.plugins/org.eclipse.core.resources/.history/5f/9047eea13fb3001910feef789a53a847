@@ -1,0 +1,33 @@
+package com.discodeaucion_ver03;
+
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class UploadImgTransmission extends Thread{
+	
+	int port = 0;
+	
+	ServerSocket imgSendServer = null;
+	Socket receiver = null;
+	
+	public UploadImgTransmission(int port) {
+		this.port = port;
+	}
+	
+	@Override
+	public void run(){
+		try {
+			imgSendServer = new ServerSocket(port);
+			receiver = imgSendServer.accept();
+			BufferedOutputStream bos = new BufferedOutputStream(receiver.getOutputStream());
+			DataOutputStream dos = new DataOutputStream(bos);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

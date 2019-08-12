@@ -1,0 +1,22 @@
+package com.jsuoptest;
+
+import java.io.IOException;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+public class JsoupTgdTest {
+	
+	public static void main(String[] args) throws IOException {
+		String url = "https://tgd.kr/";
+		Connection.Response response = Jsoup.connect(url).method(Connection.Method.GET).execute();
+		Document doc = response.parse();
+		Element dropdown = doc.select("div.dropdown").first();
+		
+		System.out.println(dropdown);
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.ch2;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+public class P49 {
+
+	public static void main(String[] args) {
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+		System.out.println(ThreadLocalRandom.current().nextInt(1, 8));
+	}
+}

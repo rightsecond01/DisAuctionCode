@@ -1,0 +1,45 @@
+package com.discodeaucion_ver03;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.Socket;
+
+public class PreImageReceiving extends Thread{
+	
+	String token;
+	String user_id;
+	String room_game;
+	String downloadFolder;
+	
+	int fileNum;
+	
+	Socket socket = null;
+	
+	public PreImageReceiving(String user_id,String token,String room_game,int fileNum) {
+		this.user_id = user_id;
+		this.token = token;
+		this.room_game = room_game;
+		this.fileNum = fileNum;
+		this.downloadFolder = "C:\\chat_temp\\" + user_id + "\\" + token.substring(0,10) + "\\" + room_game;
+	}
+	
+	@Override
+	public void run() {
+	///////디렉토리 생성//////////
+		File folder = new File(downloadFolder);
+		if(!folder.exists()) {	
+			folder.mkdir();
+			}
+    ////끝////
+		
+		for(int i=0;i<fileNum;i++) {
+			try {
+				socket = new Socket("127.0.0.1",40000);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

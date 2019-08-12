@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;dbTest.TableDAO&apos; to &apos;SelectQuery&apos;&#x0D;&#x0A;- Original project: &apos;dbTest&apos;&#x0D;&#x0A;- Original element: &apos;dbTest.TableDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;dbTest.SelectQuery&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TableDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;dbTest{TableDAO.java[TableDAO" matchStrategy="1" name="SelectQuery" qualified="false" references="true" similarDeclarations="false" stamp="1558328050845" textual="false" version="1.0"/>
+</session>

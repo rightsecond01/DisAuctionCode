@@ -1,0 +1,30 @@
+package com.discodeaucion_ver03;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class PreImageTransmission extends Thread {
+	
+	String gamesImageFolder = "C:\\workspace_java\\dev_java\\src\\com\\images\\games\\";
+	ServerSocket imgSendServer = null;
+	Socket receiver = null;
+	
+	String room_game = null;
+	public PreImageTransmission(String room_game) {
+		this.room_game = room_game;
+	}
+	
+	
+	@Override
+	public void run() {
+		File[] files = new File(gamesImageFolder + room_game).listFiles();
+		try {
+			imgSendServer = new ServerSocket(40000);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

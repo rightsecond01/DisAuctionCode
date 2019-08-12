@@ -1,0 +1,25 @@
+package com.discodeaucion_ver03;
+
+public class UploadImgReceiving extends Thread{
+	String token = null;
+	String imgFileName = null;
+	int port = 0;
+
+	String thisRoomServerFolder = null;
+	
+	public UploadImgReceiving(String token, String imgFileName, int port) {
+		this.token = token;
+		this.imgFileName = imgFileName;
+		this.port = port;
+		
+		String roomdivision = token.substring(0,10);
+		thisRoomServerFolder = "C:\\workspace_java\\dev_java\\src\\com\\images\\" + roomdivision;
+
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+	
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value=""/>
+		<list key="findhistory">
+			<item value="127"/>
+			<item value="192.168.0.9"/>
+			<item value="fileChooser"/>
+			<item value="jlb_userInfo"/>
+			<item value="프로필"/>
+			<item value="new Color"/>
+			<item value="jtp_display"/>
+			<item value="jp_left_Bottom_profile_Text_blank"/>
+			<item value="setItemImg"/>
+			<item value="resizeImage"/>
+			<item value="resize"/>
+			<item value="thread"/>
+			<item value="auctionRoomThread"/>
+			<item value="star"/>
+			<item value="프로"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="vr."/>
+			<item value="jtp_display"/>
+			<item value="_Bottom_profile"/>
+			<item value="vr"/>
+			<item value="ds.roomPort"/>
+			<item value="String "/>
+			<item value="ds"/>
+			<item value="dst"/>
+			<item value="jp_hor_f_offline"/>
+			<item value="jp_hor_f_online"/>
+			<item value="jp_hor_friend"/>
+			<item value="jp_hor_roomList"/>
+			<item value="tc2"/>
+			<item value="writingText"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="942"/>
+		<item key="DIALOG_Y_ORIGIN" value="117"/>
+		<item key="DIALOG_WIDTH" value="288"/>
+		<item key="DIALOG_HEIGHT" value="390"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="489"/>
+		<item key="DIALOG_Y_ORIGIN" value="403"/>
+	</section>
+</section>

@@ -1,0 +1,15 @@
+package com.discodeaucion_ver03;
+
+public class PreImageReceiving extends Thread{
+	
+	String token;
+	String user_id;
+	String downloadFolder;
+	
+	public PreImageReceiving(String user_id,String token) {
+		this.user_id = user_id;
+		this.token = token;
+		this.downloadFolder = "C:\\chat_temp\\" + user_id + "\\" + token.substring(0,10) + "\\";
+	}
+
+}

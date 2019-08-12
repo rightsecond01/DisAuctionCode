@@ -1,0 +1,7 @@
+package com.discodeaucion_ver03;
+
+public class PreImageReceiving extends Thread{
+	
+	
+
+}

@@ -1,0 +1,177 @@
+package com.address;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.util.DBConnectionMgr;
+
+public class AddressBookDao implements AddressBookInterface {
+	
+	Connection con = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	DBConnectionMgr dbMgr = DBConnectionMgr.getInstance();;
+
+	public AddressBookDao() {
+		
+	}
+
+	@Override
+	public AddressVO getAddressDetail(AddressVO paVO) {
+		// TODO Auto-generated method stub
+		AddressVO raVO = null;
+		
+		String selected_id = paVO.getId();
+		StringBuffer sql = new StringBuffer();
+		
+				
+		try {
+			sql.append("select * from mkaddrtb where id = ");
+			sql.append(selected_id);
+			con = dbMgr.getConnection();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql.toString());
+			
+						
+			while(rs.next()) {
+				raVO = new AddressVO();
+				raVO.setId(rs.getString("id"));
+				raVO.setName(rs.getString("name"));
+				raVO.setAddress(rs.getString("address"));
+				raVO.setHp(rs.getString("hp"));
+				raVO.setGender(rs.getString("gender"));
+				raVO.setBirthday(rs.getString("birthday"));
+				raVO.setComments(rs.getString("comments"));
+				raVO.setRegdate(rs.getString("regdate"));				
+			}
+			return raVO;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}  finally {
+			close(con, stmt, rs);
+		}
+		return null;
+	}
+
+	@Override
+	public AddressVO addressInsert(AddressVO paVO) {
+		
+		AddressVO raVO = new AddressVO();
+		StringBuffer sql = new StringBuffer();
+		
+		try {
+			sql.append("INSERT INTO MKADDRTB(id,name,address,hp,gender,birthday,comments,regdate)");
+			sql.append(" values(?,?,?,?,?,?,?,SYSDATE)");
+			con = dbMgr.getConnection();
+			pstmt = con.prepareStatement(sql.toString());			
+			pstmt.setString(1, paVO.getId());
+			pstmt.setString(2, paVO.getName());
+			pstmt.setString(3, paVO.getAddress());
+			pstmt.setString(4, paVO.getHp());
+			pstmt.setString(5, paVO.getGender());
+			pstmt.setString(6, paVO.getBirthday());
+			pstmt.setString(7, paVO.getComments());
+			
+			int cnt = pstmt.executeUpdate();			
+			
+			raVO = getAddressDetail(paVO);
+			return raVO;
+		} catch(SQLException se) {
+			System.out.println("1");
+		}finally {
+			close(con,pstmt);
+		}
+		return null;
+	}
+
+	@Override
+	public AddressVO addressUpdate(AddressVO paVO) {
+		dbMgr = DBConnectionMgr.getInstance();
+		AddressVO raVO = new AddressVO();
+		StringBuffer sql = new StringBuffer();
+		try {
+			sql.append("UPDATE mkaddrtb SET name=?, address=?, hp=?, gender=?,birthday=?, comments=? ");			
+			sql.append("where id=?");
+			con = dbMgr.getConnection();
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, paVO.getName());
+			pstmt.setString(2, paVO.getAddress());
+			pstmt.setString(3, paVO.getHp());
+			pstmt.setString(4, paVO.getGender());
+			pstmt.setString(5, paVO.getBirthday());
+			pstmt.setString(6, paVO.getComments());
+			pstmt.setString(7, paVO.getId());
+			
+			int cnt = pstmt.executeUpdate();			
+			raVO.setStatus(cnt);
+			raVO = getAddressDetail(paVO);
+			return raVO;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+		
+	}
+
+	@Override
+	public AddressVO addressDelete(AddressVO paVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}	
+	
+	@Override
+	public List<AddressVO> getAddress(AddressVO paVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}	
+	
+	//////////////////////////////자원 반납 메소드 정의//////////////////////////////////////////////
+	private void close(Connection con, Statement stmt, ResultSet rs) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				
+			}
+		}
+		if (stmt != null) {
+			try {
+				stmt.close();
+			}catch(SQLException e) {
+				
+			}
+		}
+		if (con != null) {
+			try {
+				con.close();
+			}catch(SQLException e) {
+				
+			}
+		}
+
+	}
+	
+	private void close(Connection con, PreparedStatement pstmt) {
+		if(pstmt!=null) {
+			try {
+				pstmt.close();
+				con.close();
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+	}
+
+	
+	
+
+}
